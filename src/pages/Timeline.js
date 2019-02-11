@@ -8,8 +8,13 @@ export default class Timeline extends Component {
     newTweet: ''
   };
 
-  handleNewTweet = () => {
+  handleNewTweet = e => {
+    if (e.keyCode !== 13) return;
 
+    const content = this.state.newTweet;
+    const author = localStorage.getItem('@MyTwitter:username');
+
+    console.log(content, author);
   }
 
   handleInputChange = e => {
