@@ -4,6 +4,8 @@ import api from '../service/api';
 import twitterLogo from '../twitter.svg';
 import './Timeline.css';
 
+import Tweet from '../components/Tweet';
+
 export default class Timeline extends Component {
   state = {
     tweets: [],
@@ -43,7 +45,9 @@ export default class Timeline extends Component {
             placeholder='O que está acontecendo?' />
         </form>
 
-        {this.state.tweets.map(tweet => <h1>{tweet.content}</h1>)}
+        <ul className="tweet-list">
+          {this.state.tweets.map(tweet => <Tweet key={tweet._id} tweet={tweet} />)}
+        </ul>
       </div>
     );
   }
